@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&family=Signika:wght@700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media (max-width: 700px) {
+    #container {
+        flex-direction: column; } }
+
+body {
+    color: #000000;
+    background-color: #eeeeee;
+    height: 100%;
+    margin: 1%;
+    font-family: Ubuntu, serif;
+    font-size: 18px; }
+
+.myNav {
+    background-color: transparent !important; }
+.myNav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    border-radius: 10px; }
+.myNav li {
+    float: left; }
+.myNav li a {
+    text-align: center;
+    display: block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none; }
+.myNav li a:hover {
+    background-color: #111; }
+
+hr {
+    width: 50%;
+    margin-top: 25px;
+    margin-bottom: 25px; }
+
+#container {
+    text-align: center;
+    margin: 60px;
+    border-style: solid;
+    border-color: purple;
+    border-width: 5px; }
+
+#container h1 {
+    text-align: center;
+    font-size: 50px; }
+
+.heading {
+    text-align: center;
+    font-family: Signika, sans-serif; }
+
+.main-image {
+    border-radius: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-style: solid;
+    border-color: orange;
+    border-width: 5px; }
+
+#brief-intro {
+    margin: 20px 30px 10px;
+    font-size: 20px; }
+
+#brief-summary {
+    margin-left: 30px;
+    margin-right: 30px; }
+
+#timeline {
+    text-align: left; }
+
+#timeline #tribute-video {
+    text-align: center; }
+
+#tribute-video iframe {
+    border-style: solid;
+    border-color: orange;
+    border-width: 5px;
+    border-radius: 8px; }
+
+#fan-tributes {
+    max-width: 500px;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    margin: 10px auto;
+    border-radius: 8px;
+    color: black; }
+
+footer {
+    text-align: center;
+    color: #333333; }
+
+#fan-tributes form label {
+    float: left;
+    margin-bottom: 5px; }
+
+#fan-tributes input,
+#fan-tributes textarea,
+#fan-tributes select {
+    font-family: Ubuntu, serif;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    outline: 0;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    background: #e8eeef;
+    margin: 0 0 30px; }
+
+#fan-tributes input[type="submit"],
+#fan-tributes input[type="button"] {
+    position: relative;
+    display: block;
+    padding: 19px 39px 18px 39px;
+    color: purple;
+    background: #fdb927;
+    font-size: 18px;
+    text-align: center;
+    font-style: normal;
+    width: 100%;
+    border: 1px solid #d49c26;
+    margin: 0 auto 10px; }
+
+#fan-tributes input[type="submit"]:hover,
+#fan-tributes input[type="button"]:hover {
+    background: #d49c26; }

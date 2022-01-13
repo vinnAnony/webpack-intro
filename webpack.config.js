@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const tailwind = require("tailwindcss");
 
 // This is the main configuration object.
 // Here, you write different options and tell Webpack what to do
@@ -12,43 +14,49 @@ module.exports = {
     // Webpack will bundle all JavaScript into this file
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '',
         filename: 'bundle.js'
     },
     module: {
         rules: [
-            {      test: /\.(sa|sc|c)ss$/,
-
-                use: [
-                    {
-                        loader: "css-loader",
+            {
+                test: /\.css$/i,
+                use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader'],
+            },
+            {
+                test: /\.js$/i,
+                include: path.resolve(__dirname, 'src'),
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
                     },
-                    {
-                        loader: "postcss-loader"
-                    },
-                    {
-                        loader: "sass-loader",
-                        options: {
-                            implementation: require("sass")
-                        }
+                },
+            },
+            {
+                test: /\.(png|jp(e*)g|svg)$/,
+                use: [{
+                    loader: 'url-loader',
+                    options: {
+                        limit: 8000, // Convert images < 8kb to base64 strings
+                        name: 'images/[name].[ext]'
                     }
-                ]
+                }]
             }
         ]
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack Example App',
-            header: 'Webpack Example Title',
-            metaDesc: 'Webpack Example Description',
             template: './src/index.html',
             filename: 'index.html',
-            inject: 'body'
-        })
+        }),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css"
+        }),
+        tailwind,
     ],
     devServer: {
         static: {
-            directory: path.join(__dirname, 'src'),
+            directory: path.join(__dirname, 'dist'),
         },
         compress: true,
         port: 9000,
